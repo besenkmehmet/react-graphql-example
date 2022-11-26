@@ -1,5 +1,6 @@
 import ProfileInformation from './ProfileInformation';
 import styles from './ProfileLayout.module.css';
+import ProfileRepositories from './ProfileRepositories';
 
 function ProfileLayout() {
   return (
@@ -15,6 +16,11 @@ function ProfileLayout() {
           following: {
             totalCount: 100,
           },
+        }}
+      />
+      <ProfileRepositories
+        user={{
+          login: 'Test',
         }}
       />
     </div>
