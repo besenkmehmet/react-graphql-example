@@ -1,5 +1,8 @@
+import { useEffect, useState } from 'react';
 import styles from './Header.module.css';
 import Logo from './Logo';
+import { userService } from '../services/userService';
+import User from '../interfaces/user';
 
 const headerTextItems = [
   'Pull requests',
@@ -10,6 +13,17 @@ const headerTextItems = [
 ];
 
 function Header() {
+  const [userSearchQuery, setUserSearchQuery] = useState('');
+  const [usersList, setUsersList] = useState<Array<User>>([]);
+  useEffect(() => {
+    const getUsers = async () => {
+      const users = await userService.fetchUsers(userSearchQuery);
+      console.log(users);
+      setUsersList(users);
+    };
+    getUsers();
+  }, [userSearchQuery]);
+
   return (
     <div
       className={
@@ -24,13 +38,31 @@ function Header() {
         <input
           placeholder="Search user..."
           className={styles.userSearchInput}
+          onChange={(e) => setUserSearchQuery(e.target.value)}
         />
         <div
           className={
             styles.userSearchResults +
             ' position-absolute bg-white w-100 rounded-bottom border'
           }
-        ></div>
+        >
+          {usersList?.map((item) => (
+            <div
+              className={
+                styles.userSearchResultItem + ' px-3 py-2 border-bottom'
+              }
+              key={item.login}
+            >
+              <img
+                src={item.avatarUrl}
+                alt=""
+                height={32}
+                className="rounded-circle"
+              />
+              <span className="ms-3">{item.login}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="d-none d-md-block ms-2">
