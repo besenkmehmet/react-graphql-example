@@ -13,6 +13,7 @@ interface ProfileRepositoriesProps {
   userName: string;
 }
 function ProfileRepositories(props: ProfileRepositoriesProps) {
+  let delayTimer: NodeJS.Timeout;
   const userName = props.userName;
   const [repositoryList, setRepositoryList] = useState<Array<Repository>>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -29,6 +30,13 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
     getRepositories();
   }, [searchQuery, userName]);
 
+  function handleQueryChange(query: string) {
+    clearTimeout(delayTimer);
+    delayTimer = setTimeout(function () {
+      setSearchQuery(query);
+    }, 300);
+  }
+
   return (
     <div>
       <div className="mt-3 border-bottom">
@@ -36,7 +44,7 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
           className={styles.repositorySerchInput + ' w-75 mb-3'}
           type="text"
           placeholder="Find a repository..."
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e) => handleQueryChange(e.target.value)}
         />
       </div>
       {repositoryList.length ? (
