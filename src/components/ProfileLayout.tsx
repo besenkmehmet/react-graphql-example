@@ -20,7 +20,7 @@ function ProfileLayout() {
       />
       <ProfileRepositories
         user={{
-          login: 'Test',
+          login: 'w3cj',
         }}
       />
     </div>
