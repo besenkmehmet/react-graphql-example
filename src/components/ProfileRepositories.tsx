@@ -44,7 +44,7 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
         repositoryList.map((item) => (
           <div className="mt-4 border-bottom pb-4" key={item.id}>
             <div className="d-flex justify-content-start">
-              <a className="font-weight-bold" href="">
+              <a className="fw-bold fs-5 text-decoration-none" href="">
                 {item.name}
               </a>
               <span
@@ -53,7 +53,7 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
                 Public
               </span>
             </div>
-            <div className="mt-1 w-50 font-weight-light">
+            <div className="mt-1 w-50 fw-light">
               <small className="">{item.description}</small>
             </div>
             <div className="d-flex align-items-center mt-3">
@@ -67,9 +67,7 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
                       className={styles.languageColor + ' me-1'}
                       style={{ backgroundColor: language.node.color }}
                     ></div>
-                    <small className="font-weight-light">
-                      {language.node.name}
-                    </small>
+                    <small className="fw-light">{language.node.name}</small>
                   </div>
                 ))}
               {item.forkCount && item.languages && (
@@ -79,7 +77,7 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
                 </div>
               )}
               {item.updatedAt && (
-                <small className="font-weight-light">
+                <small className="fw-light">
                   Updated on {formatDate(item.updatedAt ?? '')}
                 </small>
               )}
