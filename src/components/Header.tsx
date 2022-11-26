@@ -12,7 +12,11 @@ const headerTextItems = [
   'Explore',
 ];
 
-function Header() {
+interface HeaderProps {
+  userSelect: (userName: string) => void;
+}
+
+function Header(props: HeaderProps) {
   const [userSearchQuery, setUserSearchQuery] = useState('');
   const [usersList, setUsersList] = useState<Array<User>>([]);
   useEffect(() => {
@@ -52,6 +56,7 @@ function Header() {
                 styles.userSearchResultItem + ' px-3 py-2 border-bottom'
               }
               key={item.login}
+              onMouseDown={() => props.userSelect(item.login)}
             >
               <img
                 src={item.avatarUrl}

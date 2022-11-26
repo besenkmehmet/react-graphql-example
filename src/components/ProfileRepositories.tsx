@@ -11,24 +11,24 @@ function formatDate(date: string) {
 }
 
 interface ProfileRepositoriesProps {
-  user: User;
+  userName: string;
 }
 function ProfileRepositories(props: ProfileRepositoriesProps) {
-  const user = props.user;
+  const userName = props.userName;
   const [repositoryList, setRepositoryList] = useState<Array<Repository>>([]);
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const getRepositories = async () => {
       const repositories = await userService.fetchUserRepositories(
-        user.login,
+        userName,
         searchQuery
       );
       console.log(repositories);
       setRepositoryList(repositories);
     };
     getRepositories();
-  }, [searchQuery]);
+  }, [searchQuery, userName]);
 
   return (
     <div>
@@ -86,7 +86,7 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
         ))
       ) : (
         <div className="d-flex justify-content-center h4 mt-5 ">
-          {user.login} does not have any repositories that match.
+          {userName} does not have any repositories that match.
         </div>
       )}
     </div>

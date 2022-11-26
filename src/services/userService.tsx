@@ -72,4 +72,32 @@ export const userService = {
       });
     return repositories;
   },
+  fetchUserByLogin: async (userName: string) => {
+    let user: User = {
+      login: userName,
+    };
+    await apolloClient
+      .query({
+        query: gql`{
+          user(login: "${userName}") {
+              login
+              name
+              avatarUrl
+              bio
+              followers{
+                totalCount
+              }
+              following{
+                totalCount
+              }
+              email
+              company
+          }
+        }`,
+      })
+      .then((result) => {
+        user = result.data.user;
+      });
+    return user;
+  },
 };
