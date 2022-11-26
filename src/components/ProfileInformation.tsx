@@ -8,7 +8,7 @@ interface ProfileInformationProps {
 function ProfileInformation(props: ProfileInformationProps) {
   const user = props.user;
   return (
-    <div className="d-flex flex-column align-items-end me-3 position-relative ml-auto">
+    <div className="d-flex flex-column align-items-end me-3 position-relative ms-auto">
       <div
         className={
           styles.top +
@@ -28,9 +28,7 @@ function ProfileInformation(props: ProfileInformationProps) {
         <div className="d-flex mt-3 align-items-center">
           <span className="fw-bold me-2">{user.followers?.totalCount}</span>
           <small className="fw-light me-2">followers</small>·
-          <span className="fw-bold mx-2">
-            {user.following?.totalCount}
-          </span>
+          <span className="fw-bold mx-2">{user.following?.totalCount}</span>
           <small className="fw-light">following</small>
         </div>
       </div>
