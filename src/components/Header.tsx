@@ -17,6 +17,7 @@ interface HeaderProps {
 }
 
 function Header(props: HeaderProps) {
+  let delayTimer: NodeJS.Timeout;
   const [userSearchQuery, setUserSearchQuery] = useState('');
   const [usersList, setUsersList] = useState<Array<User>>([]);
   useEffect(() => {
@@ -27,6 +28,13 @@ function Header(props: HeaderProps) {
     };
     getUsers();
   }, [userSearchQuery]);
+
+  function handleUserChange(userName: string) {
+    clearTimeout(delayTimer);
+    delayTimer = setTimeout(function () {
+      setUserSearchQuery(userName);
+    }, 300);
+  }
 
   return (
     <div
@@ -42,7 +50,7 @@ function Header(props: HeaderProps) {
         <input
           placeholder="Search user..."
           className={styles.userSearchInput}
-          onChange={(e) => setUserSearchQuery(e.target.value)}
+          onChange={(e) => handleUserChange(e.target.value)}
         />
         <div
           className={

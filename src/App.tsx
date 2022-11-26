@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Header from './components/Header';
 import ProfileLayout from './components/ProfileLayout';
 import ProfileTabs from './components/ProfileTabs';

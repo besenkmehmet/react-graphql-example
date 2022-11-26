@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Repository from '../interfaces/repository';
-import User from '../interfaces/user';
 import { userService } from '../services/userService';
 import styles from './ProfileRepositories.module.css';
 import { BiGitRepoForked } from 'react-icons/bi';
@@ -70,12 +69,12 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
                     <small className="fw-light">{language.node.name}</small>
                   </div>
                 ))}
-              {item.forkCount && item.languages && (
-                <div className={'d-flex mt-auto me-4'}>
+              {
+                <div className={'d-flex align-items-center me-4'}>
                   <BiGitRepoForked />
                   <small className="ms-1">{item.forkCount}</small>
                 </div>
-              )}
+              }
               {item.updatedAt && (
                 <small className="fw-light">
                   Updated on {formatDate(item.updatedAt ?? '')}
