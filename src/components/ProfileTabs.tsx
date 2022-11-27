@@ -32,7 +32,7 @@ function ProfileTabs(props: ProfileTabsProps) {
         >
           <BsJournalBookmark size={16} className="me-2 my-auto" />
           <span>Repositories</span>
-          {repositoryCount && (
+          {repositoryCount != null && repositoryCount != 0 && (
             <div
               className={`${styles.tabCount} rounded-circle d-flex justify-content-center align-items-center ms-2 px-1`}
             >
