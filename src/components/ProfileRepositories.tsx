@@ -12,9 +12,8 @@ function formatDate(date: string) {
 interface ProfileRepositoriesProps {
   userName: string;
 }
-function ProfileRepositories(props: ProfileRepositoriesProps) {
+function ProfileRepositories({ userName }: ProfileRepositoriesProps) {
   let delayTimer: NodeJS.Timeout;
-  const userName = props.userName;
   const [repositoryList, setRepositoryList] = useState<Array<Repository>>([]);
   const [searchQuery, setSearchQuery] = useState('');
 

@@ -7,8 +7,7 @@ import { FiPackage } from 'react-icons/fi';
 interface ProfileTabsProps {
   repositoryCount?: number;
 }
-function ProfileTabs(props: ProfileTabsProps) {
-  const repositoryCount = props.repositoryCount;
+function ProfileTabs({ repositoryCount }: ProfileTabsProps) {
   return (
     <div
       className={

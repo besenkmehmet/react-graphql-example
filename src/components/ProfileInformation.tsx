@@ -7,8 +7,7 @@ interface ProfileInformationProps {
   userName: string;
 }
 
-function ProfileInformation(props: ProfileInformationProps) {
-  const userName = props.userName;
+function ProfileInformation({ userName }: ProfileInformationProps) {
   const [user, setUser] = useState<User>();
 
   useEffect(() => {
