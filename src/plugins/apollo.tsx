@@ -5,10 +5,9 @@ import {
   HttpLink,
   ApolloLink,
 } from '@apollo/client';
-import { env } from '../../env';
 
 const authLink = new ApolloLink((operation, forward) => {
-  const token = env.GITHUB_BEARER;
+  const token = import.meta.env.VITE_GITHUB_BEARER;
   operation.setContext({
     headers: {
       authorization: `Bearer ${token}`,
@@ -17,14 +16,17 @@ const authLink = new ApolloLink((operation, forward) => {
   return forward(operation);
 });
 
-const httpLink = new HttpLink({ uri: 'https://api.github.com/graphql', fetch });
+const httpLink = new HttpLink({
+  uri: import.meta.env.VITE_GITHUB_GRAPHQL_BASE_URL,
+  fetch,
+});
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  uri: 'https://api.github.com/graphql',
+  uri: import.meta.env.VITE_GITHUB_GRAPHQL_BASE_URL,
   cache: new InMemoryCache(),
   headers: {
-    authorization: `Bearer ${env.GITHUB_BEARER}`,
+    authorization: `Bearer ${import.meta.env.VITE_GITHUB_BEARER}`,
   },
 });
 
