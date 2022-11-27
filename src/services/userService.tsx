@@ -26,6 +26,7 @@ export const userService = {
       })
       .then((result) => {
         users = result.data.search.nodes;
+        users = users.filter((item) => item.avatarUrl && item.login);
       });
     return users;
   },
@@ -71,5 +72,33 @@ export const userService = {
         repositories = searchResults.nodes;
       });
     return repositories;
+  },
+  fetchUserByLogin: async (userName: string) => {
+    let user: User = {
+      login: userName,
+    };
+    await apolloClient
+      .query({
+        query: gql`{
+          user(login: "${userName}") {
+              login
+              name
+              avatarUrl
+              bio
+              followers{
+                totalCount
+              }
+              following{
+                totalCount
+              }
+              email
+              company
+          }
+        }`,
+      })
+      .then((result) => {
+        user = result.data.user;
+      });
+    return user;
   },
 };

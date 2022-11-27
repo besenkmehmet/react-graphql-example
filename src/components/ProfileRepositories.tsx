@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Repository from '../interfaces/repository';
-import User from '../interfaces/user';
 import { userService } from '../services/userService';
 import styles from './ProfileRepositories.module.css';
 import { BiGitRepoForked } from 'react-icons/bi';
@@ -11,24 +10,32 @@ function formatDate(date: string) {
 }
 
 interface ProfileRepositoriesProps {
-  user: User;
+  userName: string;
 }
 function ProfileRepositories(props: ProfileRepositoriesProps) {
-  const user = props.user;
+  let delayTimer: NodeJS.Timeout;
+  const userName = props.userName;
   const [repositoryList, setRepositoryList] = useState<Array<Repository>>([]);
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const getRepositories = async () => {
       const repositories = await userService.fetchUserRepositories(
-        user.login,
+        userName,
         searchQuery
       );
       console.log(repositories);
       setRepositoryList(repositories);
     };
     getRepositories();
-  }, [searchQuery]);
+  }, [searchQuery, userName]);
+
+  function handleQueryChange(query: string) {
+    clearTimeout(delayTimer);
+    delayTimer = setTimeout(function () {
+      setSearchQuery(query);
+    }, 300);
+  }
 
   return (
     <div>
@@ -37,7 +44,7 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
           className={styles.repositorySerchInput + ' w-75 mb-3'}
           type="text"
           placeholder="Find a repository..."
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e) => handleQueryChange(e.target.value)}
         />
       </div>
       {repositoryList.length ? (
@@ -70,12 +77,12 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
                     <small className="fw-light">{language.node.name}</small>
                   </div>
                 ))}
-              {item.forkCount && item.languages && (
-                <div className={'d-flex mt-auto me-4'}>
+              {
+                <div className={'d-flex align-items-center me-4'}>
                   <BiGitRepoForked />
                   <small className="ms-1">{item.forkCount}</small>
                 </div>
-              )}
+              }
               {item.updatedAt && (
                 <small className="fw-light">
                   Updated on {formatDate(item.updatedAt ?? '')}
@@ -86,7 +93,7 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
         ))
       ) : (
         <div className="d-flex justify-content-center h4 mt-5 ">
-          {user.login} does not have any repositories that match.
+          {userName} does not have any repositories that match.
         </div>
       )}
     </div>
