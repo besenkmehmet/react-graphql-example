@@ -3,7 +3,7 @@
 - This project uses Github GraphQL API with React Typescript. In this project you can search through Github users and their repositories.
 
 ### How to run the project
-After cloning the project create .env file on the app level and provide **VITE_GITHUB_BEARER** and ** VITE_GITHUB_GRAPHQL_BASE_URL**. Run the following commands:
+After cloning the project create .env file on the app level and provide **VITE_GITHUB_BEARER** and **VITE_GITHUB_GRAPHQL_BASE_URL**. Run the following commands:
 
 - npm install
 - npm run dev
