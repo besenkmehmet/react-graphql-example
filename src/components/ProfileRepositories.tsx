@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Repository from '../interfaces/repository';
 import { userService } from '../services/userService';
-import styles from './ProfileRepositories.module.css';
+import styles from '../assets/styles/components/ProfileRepositories.module.css';
 import { BiGitRepoForked } from 'react-icons/bi';
 import dayjs from 'dayjs';
 
@@ -12,9 +12,8 @@ function formatDate(date: string) {
 interface ProfileRepositoriesProps {
   userName: string;
 }
-function ProfileRepositories(props: ProfileRepositoriesProps) {
-  let delayTimer: NodeJS.Timeout;
-  const userName = props.userName;
+function ProfileRepositories({ userName }: ProfileRepositoriesProps) {
+  let delayTimer: ReturnType<typeof setTimeout>;
   const [repositoryList, setRepositoryList] = useState<Array<Repository>>([]);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -41,7 +40,7 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
     <div className="ms-4 ms-lg-0">
       <div className="mt-3 border-bottom">
         <input
-          className={styles.repositorySerchInput + ' w-75 mb-3'}
+          className={`${styles.repositorySerchInput} w-75 mb-3`}
           type="text"
           placeholder="Find a repository..."
           onChange={(e) => handleQueryChange(e.target.value)}
@@ -59,7 +58,7 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
                 {item.name}
               </a>
               <span
-                className={styles.customBadge + ' my-auto ms-2 border px-2'}
+                className={`${styles.customBadge} my-auto ms-2 border px-2`}
               >
                 Public
               </span>
@@ -75,7 +74,7 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
                     key={language.node.name}
                   >
                     <div
-                      className={styles.languageColor + ' me-1'}
+                      className={`${styles.languageColor} me-1`}
                       style={{ backgroundColor: language.node.color }}
                     ></div>
                     <small className="fw-light">{language.node.name}</small>
