@@ -38,7 +38,7 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
   }
 
   return (
-    <div>
+    <div className="ms-4 ms-lg-0">
       <div className="mt-3 border-bottom">
         <input
           className={styles.repositorySerchInput + ' w-75 mb-3'}

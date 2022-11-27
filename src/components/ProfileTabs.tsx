@@ -13,7 +13,7 @@ function ProfileTabs(props: ProfileTabsProps) {
     <div
       className={
         styles.tabsWrapper +
-        ' mt-4 d-flex justify-content-center border-bottom sticky-top bg-white pb-1'
+        ' mt-4 d-flex justify-content-center border-bottom sticky-top bg-white pb-1 overflow-scroll'
       }
     >
       <a
