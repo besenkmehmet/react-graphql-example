@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Repository from '../interfaces/repository';
 import { userService } from '../services/userService';
-import styles from './ProfileRepositories.module.css';
+import styles from '../assets/styles/components/ProfileRepositories.module.css';
 import { BiGitRepoForked } from 'react-icons/bi';
 import dayjs from 'dayjs';
 

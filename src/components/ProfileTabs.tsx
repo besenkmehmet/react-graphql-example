@@ -1,4 +1,4 @@
-import styles from './ProfileTabs.module.css';
+import styles from '../assets/styles/components/ProfileTabs.module.css';
 import { BsBook } from 'react-icons/bs';
 import { BsJournalBookmark } from 'react-icons/bs';
 import { AiOutlineProject, AiOutlineStar } from 'react-icons/ai';

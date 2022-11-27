@@ -1,5 +1,5 @@
 import ProfileInformation from './ProfileInformation';
-import styles from './ProfileLayout.module.css';
+import styles from '../assets/styles/components/ProfileLayout.module.css';
 import ProfileRepositories from './ProfileRepositories';
 
 interface ProfileLayoutProps {

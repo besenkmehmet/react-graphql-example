@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import User from '../interfaces/user';
 import { userService } from '../services/userService';
-import styles from './ProfileInformation.module.css';
+import styles from '../assets/styles/components/ProfileInformation.module.css';
 
 interface ProfileInformationProps {
   userName: string;

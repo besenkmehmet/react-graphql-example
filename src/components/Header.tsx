@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import styles from './Header.module.css';
+import styles from '../assets/styles/components/Header.module.css';
 import Logo from './Logo';
 import { userService } from '../services/userService';
 import User from '../interfaces/user';
