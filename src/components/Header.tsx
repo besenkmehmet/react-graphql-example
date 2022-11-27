@@ -38,10 +38,7 @@ function Header(props: HeaderProps) {
 
   return (
     <div
-      className={
-        styles.navBar +
-        ' d-flex align-items-center justify-content-md-start justify-content-center'
-      }
+      className={`${styles.navBar} d-flex align-items-center justify-content-md-start justify-content-center'`}
     >
       <div className="mx-4 mb-3 mt-3">
         <Logo />
@@ -53,16 +50,11 @@ function Header(props: HeaderProps) {
           onChange={(e) => handleUserChange(e.target.value)}
         />
         <div
-          className={
-            styles.userSearchResults +
-            ' position-absolute bg-white w-100 rounded-bottom border'
-          }
+          className={`${styles.userSearchResults} position-absolute bg-white w-100 rounded-bottom border`}
         >
           {usersList?.map((item) => (
             <div
-              className={
-                styles.userSearchResultItem + ' px-3 py-2 border-bottom'
-              }
+              className={`${styles.userSearchResultItem} px-3 py-2 border-bottom`}
               key={item.login}
               onMouseDown={() => props.userSelect(item.login)}
             >
@@ -80,7 +72,7 @@ function Header(props: HeaderProps) {
 
       <div className="d-none d-md-block ms-2">
         {headerTextItems.map((item) => (
-          <a href="" className={styles.itemText + ' mx-2'} key={item}>
+          <a href="" className={`${styles.itemText} mx-2`} key={item}>
             <span>{item}</span>
           </a>
         ))}

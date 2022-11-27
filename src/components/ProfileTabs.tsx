@@ -25,9 +25,7 @@ function ProfileTabs(props: ProfileTabsProps) {
       </a>
       <div className="d-flex flex-column">
         <a
-          className={
-            styles.tabContainer + ' d-flex align-item-center mx-3 p-1 mb-2'
-          }
+          className={`${styles.tabContainer} d-flex align-item-center mx-3 p-1 mb-2`}
           href=""
         >
           <BsJournalBookmark size={16} className="me-2 my-auto" />
@@ -45,27 +43,21 @@ function ProfileTabs(props: ProfileTabsProps) {
       </div>
 
       <a
-        className={
-          styles.tabContainer + ' d-flex align-item-center mx-3 p-1 mb-2'
-        }
+        className={`${styles.tabContainer} d-flex align-item-center mx-3 p-1 mb-2`}
         href=""
       >
         <AiOutlineProject size={18} className="me-2 my-auto" />
         <span>Projects</span>
       </a>
       <a
-        className={
-          styles.tabContainer + ' d-flex align-item-center mx-3 p-1 mb-2'
-        }
+        className={`${styles.tabContainer} d-flex align-item-center mx-3 p-1 mb-2`}
         href=""
       >
         <FiPackage size={18} className="me-2 my-auto" />
         <span>Packages</span>
       </a>
       <a
-        className={
-          styles.tabContainer + ' d-flex align-item-center mx-3 p-1 mb-2'
-        }
+        className={`${styles.tabContainer} d-flex align-item-center mx-3 p-1 mb-2`}
         href=""
       >
         <AiOutlineStar size={18} className="me-2 my-auto" />

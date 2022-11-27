@@ -25,10 +25,7 @@ function ProfileInformation(props: ProfileInformationProps) {
       className={`${styles.profileSide} d-none d-lg-flex flex-column align-items-end me-3 position-relative ms-auto`}
     >
       <div
-        className={
-          styles.top +
-          ' d-flex flex-column justify-content-start position-absolute'
-        }
+        className={`${styles.top} d-flex flex-column justify-content-start position-absolute`}
       >
         <div className={styles.profilePicture}>
           <img src={user?.avatarUrl} alt="" />
