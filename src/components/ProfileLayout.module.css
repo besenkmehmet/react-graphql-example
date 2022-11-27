@@ -1,4 +1,3 @@
 .layoutGrid {
-    display: grid;
     grid-template-columns: 30vw 65vw;
 }

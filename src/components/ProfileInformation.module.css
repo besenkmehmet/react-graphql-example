@@ -7,6 +7,10 @@
     z-index: 10;
 }
 
+.profileSide {
+    width: 300px;
+}
+
 .profilePicture img {
     height: 300px;
 }

@@ -7,7 +7,9 @@ interface ProfileLayoutProps {
 }
 function ProfileLayout(props: ProfileLayoutProps) {
   return (
-    <div className={styles.layoutGrid}>
+    <div
+      className={`${styles.layoutGrid} d-flex justify-content-center d-lg-grid`}
+    >
       <ProfileInformation userName={props.userName} />
       <ProfileRepositories userName={props.userName} />
     </div>

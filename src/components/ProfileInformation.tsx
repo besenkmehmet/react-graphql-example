@@ -21,7 +21,9 @@ function ProfileInformation(props: ProfileInformationProps) {
   }, [userName]);
 
   return (
-    <div className="d-flex flex-column align-items-end me-3 position-relative ms-auto">
+    <div
+      className={`${styles.profileSide} d-none d-lg-flex flex-column align-items-end me-3 position-relative ms-auto`}
+    >
       <div
         className={
           styles.top +
