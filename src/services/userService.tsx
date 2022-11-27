@@ -26,6 +26,7 @@ export const userService = {
       })
       .then((result) => {
         users = result.data.search.nodes;
+        users = users.filter((item) => item.avatarUrl && item.login);
       });
     return users;
   },
