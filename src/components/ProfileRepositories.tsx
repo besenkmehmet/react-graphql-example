@@ -13,7 +13,7 @@ interface ProfileRepositoriesProps {
   userName: string;
 }
 function ProfileRepositories({ userName }: ProfileRepositoriesProps) {
-  let delayTimer: NodeJS.Timeout;
+  let delayTimer: ReturnType<typeof setTimeout>;
   const [repositoryList, setRepositoryList] = useState<Array<Repository>>([]);
   const [searchQuery, setSearchQuery] = useState('');
 

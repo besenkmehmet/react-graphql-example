@@ -17,7 +17,7 @@ interface HeaderProps {
 }
 
 function Header({ userSelect }: HeaderProps) {
-  let delayTimer: NodeJS.Timeout;
+  let delayTimer: ReturnType<typeof setTimeout>;
   const [userSearchQuery, setUserSearchQuery] = useState('');
   const [usersList, setUsersList] = useState<Array<User>>([]);
   useEffect(() => {
