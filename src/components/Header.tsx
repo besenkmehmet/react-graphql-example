@@ -4,7 +4,7 @@ import Logo from './Logo';
 import { userService } from '../services/userService';
 import User from '../interfaces/user';
 
-const headerTextItems = [
+export const headerTextItems = [
   'Pull requests',
   'Issues',
   'Codespaces',
