@@ -12,6 +12,10 @@ After cloning the project create .env file on the app level and provide **VITE_G
 
 - npm run test
 
+### How to run storybook
+
+- npm run storybook
+
 ### Demo
 
 You can see the demo [here](https://splendorous-pika-da944f.netlify.app/)
