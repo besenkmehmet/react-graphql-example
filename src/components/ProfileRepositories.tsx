@@ -49,7 +49,11 @@ function ProfileRepositories(props: ProfileRepositoriesProps) {
       </div>
       {repositoryList.length ? (
         repositoryList.map((item) => (
-          <div className="mt-4 border-bottom pb-4" key={item.id}>
+          <div
+            className="mt-4 border-bottom pb-4"
+            key={item.id}
+            data-testid="repository-div"
+          >
             <div className="d-flex justify-content-start">
               <a className="fw-bold fs-5 text-decoration-none" href="">
                 {item.name}
